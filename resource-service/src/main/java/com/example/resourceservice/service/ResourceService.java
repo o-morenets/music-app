@@ -40,7 +40,7 @@ public class ResourceService {
 		resource.setData(file.getBytes());
 		Resource savedResource = resourceRepository.save(resource);
 
-		Song song = songServiceWebClient.post()
+		songServiceWebClient.post()
 				.accept(MediaType.APPLICATION_JSON)
 				.body(Mono.just(buildSong(file, savedResource.getId())), Song.class)
 				.retrieve()
