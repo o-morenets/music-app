@@ -1,6 +1,30 @@
 services:
 
-  resources_db_postgres:
+  discovery-service:
+    container_name: discovery-service
+    image: discovery-service
+    build:
+      context: ./discovery-service
+    ports:
+      - "8761:8761"
+    networks:
+      - music-network
+
+  gateway-service:
+    container_name: gateway-service
+    image: gateway-service
+    build:
+      context: ./gateway-service
+    environment:
+      DISCOVERY_SERVICE_HOST: discovery-service
+    ports:
+      - "8088:8088"
+    networks:
+      - music-network
+    depends_on:
+      - discovery-service
+
+  resources_db:
     container_name: resources_db
     image: postgres
     environment:
@@ -14,7 +38,7 @@ services:
     networks:
       - music-network
 
-  songs_db_postgres:
+  songs_db:
     container_name: songs_db
     image: postgres
     environment:
@@ -31,27 +55,35 @@ services:
   resource-service:
     container_name: resource-service
     image: resource-service
+    build:
+      context: ./resource-service
     environment:
       RESOURCES_DB_HOST: resources_db
-      SONG_SERVICE_URL: http://song-service:8082/songs
+      SONG_SERVICE_URL: http://gateway-service:8088/songs
+      DISCOVERY_SERVICE_HOST: discovery-service
     ports:
       - "8081:8081"
     networks:
       - music-network
     depends_on:
-      - resources_db_postgres
+      - gateway-service
+      - resources_db
 
   song-service:
     container_name: song-service
     image: song-service
+    build:
+      context: ./song-service
     environment:
       SONGS_DB_HOST: songs_db
+      DISCOVERY_SERVICE_HOST: discovery-service
     ports:
       - "8082:8082"
     networks:
       - music-network
     depends_on:
-      - songs_db_postgres
+      - gateway-service
+      - songs_db
 
 volumes:
   postgres:

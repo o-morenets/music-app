@@ -10,7 +10,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 @Configuration
 public class WebClientConfiguration {
 
-	@Value("${music-app.service.song-service.url}")
+	@Value("${music-app.service.songs.url}")
 	private String songApiUrl;
 
 	@Bean
