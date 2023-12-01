@@ -3,19 +3,5 @@ server:
 spring:
   application:
     name: song-service
-  datasource:
-    url: jdbc:postgresql://${SONGS_DB_HOST:localhost}:${SONGS_DB_PORT:5432}/postgres
-    username: postgres
-    password: postgres
-  jpa:
-    generate-ddl: true
-    show-sql: true
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
-eureka:
-  client:
-    service-url:
-      defaultZone: http://${DISCOVERY_SERVICE_HOST:localhost}:8761/eureka
-  instance:
-    prefer-ip-address: true
+  config:
+    import: optional:configserver:http://config-service:8888

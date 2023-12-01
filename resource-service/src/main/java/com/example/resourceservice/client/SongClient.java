@@ -5,9 +5,9 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-@FeignClient("${music-app.service.songs.url}")
+@FeignClient("song-service")
 public interface SongClient {
 
-	@PostMapping()
+	@PostMapping("/songs")
 	void saveSong(@RequestBody Song song);
 }
