@@ -1,5 +1,6 @@
 package com.example.resourceservice.service;
 
+import com.example.resourceservice.client.SongClient;
 import com.example.resourceservice.entity.Resource;
 import com.example.resourceservice.entity.Song;
 import com.example.resourceservice.exception.Mp3ValidationException;
@@ -11,12 +12,9 @@ import org.apache.tika.metadata.Metadata;
 import org.apache.tika.parser.ParseContext;
 import org.apache.tika.parser.mp3.Mp3Parser;
 import org.apache.tika.sax.BodyContentHandler;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.reactive.function.client.WebClient;
 import org.xml.sax.SAXException;
-import reactor.core.publisher.Mono;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -29,7 +27,7 @@ import java.util.TimeZone;
 public class ResourceService {
 
 	private final ResourceRepository resourceRepository;
-	private final WebClient songServiceWebClient;
+	private final SongClient songClient;
 
 	public Resource save(MultipartFile file) throws TikaException, IOException, SAXException {
 		if (file == null || file.getContentType() == null || !file.getContentType().equalsIgnoreCase("audio/mpeg")) {
@@ -40,12 +38,7 @@ public class ResourceService {
 		resource.setData(file.getBytes());
 		Resource savedResource = resourceRepository.save(resource);
 
-		songServiceWebClient.post()
-				.accept(MediaType.APPLICATION_JSON)
-				.body(Mono.just(buildSong(file, savedResource.getId())), Song.class)
-				.retrieve()
-				.bodyToMono(Song.class)
-				.block();
+		songClient.saveSong(buildSong(file, savedResource.getId()));
 
 		return savedResource;
 	}
