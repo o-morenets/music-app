@@ -1,25 +1,5 @@
 package com.example.resourceservice.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+public record Song(Long resourceId, String name, String artist, String album, String length, String year) {
 
-@Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
-public class Song {
-
-	private Long resourceId;
-
-	private String name;
-
-	private String artist;
-
-	private String album;
-
-	private String length;
-
-	private String year;
 }

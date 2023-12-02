@@ -55,14 +55,9 @@ public class ResourceService {
 		Mp3Parser mp3Parser = new Mp3Parser();
 		mp3Parser.parse(inputStream, handler, metadata, pContext);
 
-		return Song.builder()
-				.resourceId(id)
-				.name(metadata.get("dc:title"))
-				.artist(metadata.get("xmpDM:artist"))
-				.album(metadata.get("xmpDM:album"))
-				.length(formatDuration(metadata.get("xmpDM:duration")))
-				.year(metadata.get("xmpDM:releaseDate"))
-				.build();
+		return new Song(id, metadata.get("dc:title"), metadata.get("xmpDM:artist"), metadata.get("xmpDM:album"),
+				formatDuration(metadata.get("xmpDM:duration")),
+				metadata.get("xmpDM:releaseDate"));
 	}
 
 	private String formatDuration(String seconds) {

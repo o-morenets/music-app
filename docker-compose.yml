@@ -5,6 +5,8 @@ services:
     image: discovery-service
     build:
       context: ./discovery-service
+    environment:
+      CONFIG_SERVER_HOST: config-service
     ports:
       - "8761:8761"
     networks:
@@ -27,6 +29,7 @@ services:
       context: ./gateway-service
     environment:
       DISCOVERY_SERVICE_HOST: discovery-service
+      CONFIG_SERVER_HOST: config-service
     ports:
       - "8080:8080"
     networks:
@@ -71,6 +74,7 @@ services:
     environment:
       RESOURCES_DB_HOST: resources_db
       DISCOVERY_SERVICE_HOST: discovery-service
+      CONFIG_SERVER_HOST: config-service
     ports:
       - "8081:8081"
     networks:
@@ -81,15 +85,16 @@ services:
       - config-service
 
   song-service:
-    container_name: song-service
+#    container_name: song-service
     image: song-service
     build:
       context: ./song-service
     environment:
       SONGS_DB_HOST: songs_db
       DISCOVERY_SERVICE_HOST: discovery-service
+      CONFIG_SERVER_HOST: config-service
     ports:
-      - "8082:8082"
+      - "8082-8087:8082"
     networks:
       - music-network
     depends_on:
@@ -104,6 +109,7 @@ services:
       context: ./service-registry
     environment:
       DISCOVERY_SERVICE_HOST: discovery-service
+      CONFIG_SERVER_HOST: config-service
     ports:
       - "8090:8090"
     networks:

@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://${SONGS_DB_HOST:localhost}:${SONGS_DB_PORT:5432}/postgres
+    url: jdbc:postgresql://${SONGS_DB_HOST:localhost}:5432/postgres
     username: postgres
     password: postgres
   jpa:
