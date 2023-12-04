@@ -3,5 +3,5 @@ server:
 spring:
   application:
     name: song-service
-  config:
-    import: optional:configserver:http://${CONFIG_SERVER_HOST:localhost}:8888
+  profiles:
+    active: dev

@@ -1,7 +1,0 @@
-server:
-  port: 8090
-spring:
-  application:
-    name: service-registry
-  config:
-    import: optional:configserver:http://${CONFIG_SERVER_HOST:localhost}:8888

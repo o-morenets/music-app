@@ -5,20 +5,8 @@ services:
     image: discovery-service
     build:
       context: ./discovery-service
-    environment:
-      CONFIG_SERVER_HOST: config-service
     ports:
       - "8761:8761"
-    networks:
-      - music-network
-
-  config-service:
-    container_name: config-service
-    image: config-service
-    build:
-      context: ./config-service
-    ports:
-      - "8888:8888"
     networks:
       - music-network
 
@@ -28,15 +16,13 @@ services:
     build:
       context: ./gateway-service
     environment:
-      DISCOVERY_SERVICE_HOST: discovery-service
-      CONFIG_SERVER_HOST: config-service
+      DISCOVERY_SERVICE_HOST: ${DISCOVERY_SERVICE_HOST}
     ports:
       - "8080:8080"
     networks:
       - music-network
     depends_on:
       - discovery-service
-      - config-service
 
   resources_db:
     container_name: resources_db
@@ -72,9 +58,8 @@ services:
     build:
       context: ./resource-service
     environment:
-      RESOURCES_DB_HOST: resources_db
+      RESOURCES_DB_HOST: ${RESOURCES_DB_HOST}
       DISCOVERY_SERVICE_HOST: discovery-service
-      CONFIG_SERVER_HOST: config-service
     ports:
       - "8081:8081"
     networks:
@@ -82,17 +67,15 @@ services:
     depends_on:
       - gateway-service
       - resources_db
-      - config-service
 
   song-service:
 #    container_name: song-service
     image: song-service
     build:
       context: ./song-service
-    environment:
-      SONGS_DB_HOST: songs_db
-      DISCOVERY_SERVICE_HOST: discovery-service
-      CONFIG_SERVER_HOST: config-service
+#    environment:
+#      SONGS_DB_HOST: songs_db
+#      DISCOVERY_SERVICE_HOST: discovery-service
     ports:
       - "8082-8087:8082"
     networks:
@@ -100,23 +83,6 @@ services:
     depends_on:
       - gateway-service
       - songs_db
-      - config-service
-
-  service-registry:
-    container_name: service-registry
-    image: service-registry
-    build:
-      context: ./service-registry
-    environment:
-      DISCOVERY_SERVICE_HOST: discovery-service
-      CONFIG_SERVER_HOST: config-service
-    ports:
-      - "8090:8090"
-    networks:
-      - music-network
-    depends_on:
-      - discovery-service
-      - config-service
 
 volumes:
   postgres:

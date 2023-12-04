@@ -1,8 +1,10 @@
 spring:
+  config:
+    import: optional:file:.env[.properties]
   datasource:
-    url: jdbc:postgresql://${SONGS_DB_HOST:localhost}:5432/postgres
-    username: postgres
-    password: postgres
+    url: jdbc:postgresql://${RESOURCES_DB_HOST:localhost}:5432/postgres
+    username: ${POSTGRES_USERNAME}
+    password: ${POSTGRES_PASSWORD}
   jpa:
     generate-ddl: true
     show-sql: true
