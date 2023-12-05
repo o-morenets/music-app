@@ -58,8 +58,7 @@ services:
     build:
       context: ./resource-service
     environment:
-      RESOURCES_DB_HOST: ${RESOURCES_DB_HOST}
-      DISCOVERY_SERVICE_HOST: discovery-service
+      - "SPRING_PROFILES_ACTIVE=test"
     ports:
       - "8081:8081"
     networks:

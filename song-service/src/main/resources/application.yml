@@ -3,5 +3,3 @@ server:
 spring:
   application:
     name: song-service
-  profiles:
-    active: dev
