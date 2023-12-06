@@ -5,6 +5,8 @@ services:
     image: discovery-service
     build:
       context: ./discovery-service
+      args:
+        APP_NAME: discovery-service
     ports:
       - "8761:8761"
     networks:
@@ -15,8 +17,9 @@ services:
     image: gateway-service
     build:
       context: ./gateway-service
-    environment:
-      DISCOVERY_SERVICE_HOST: ${DISCOVERY_SERVICE_HOST}
+      args:
+        APP_NAME: gateway-service
+    env_file: .env
     ports:
       - "8080:8080"
     networks:
@@ -28,9 +31,9 @@ services:
     container_name: resources_db
     image: postgres
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: postgres
+      - POSTGRES_USER
+      - POSTGRES_PASSWORD
+      - POSTGRES_DB
     ports:
       - "5433:5432"
     volumes:
@@ -42,9 +45,9 @@ services:
     container_name: songs_db
     image: postgres
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: postgres
+      - POSTGRES_USER
+      - POSTGRES_PASSWORD
+      - POSTGRES_DB
     ports:
       - "5434:5432"
     volumes:
@@ -57,8 +60,9 @@ services:
     image: resource-service
     build:
       context: ./resource-service
-    environment:
-      - "SPRING_PROFILES_ACTIVE=test"
+      args:
+        APP_NAME: resource-service
+    env_file: .env
     ports:
       - "8081:8081"
     networks:
@@ -68,13 +72,12 @@ services:
       - resources_db
 
   song-service:
-#    container_name: song-service
     image: song-service
     build:
       context: ./song-service
-#    environment:
-#      SONGS_DB_HOST: songs_db
-#      DISCOVERY_SERVICE_HOST: discovery-service
+      args:
+        APP_NAME: song-service
+    env_file: .env
     ports:
       - "8082-8087:8082"
     networks:
