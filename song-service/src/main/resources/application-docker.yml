@@ -9,6 +9,8 @@ spring:
     generate-ddl: true
     show-sql: true
 eureka:
+  instance:
+    instance-id: ${spring.application.name}:${random.int}
   client:
     service-url:
       defaultZone: http://${DISCOVERY_SERVICE_HOST}:8761/eureka
