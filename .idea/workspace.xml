@@ -5,12 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e6b1d5dc-7a27-4929-a948-15b37e1c1105" name="Changes" comment="Fix port number for local profile">
-      <change beforePath="$PROJECT_DIR$/resource-service/src/main/resources/application-docker.yml" beforeDir="false" afterPath="$PROJECT_DIR$/resource-service/src/main/resources/application-docker.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resource-service/src/main/resources/application-local.yml" beforeDir="false" afterPath="$PROJECT_DIR$/resource-service/src/main/resources/application-local.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resource-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/resource-service/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/song-service/src/main/resources/application-docker.yml" beforeDir="false" afterPath="$PROJECT_DIR$/song-service/src/main/resources/application-docker.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/song-service/src/main/resources/application-local.yml" beforeDir="false" afterPath="$PROJECT_DIR$/song-service/src/main/resources/application-local.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/song-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/song-service/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/discovery-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/discovery-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gateway-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resource-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/resource-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/song-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/song-service/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,13 +32,20 @@
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;git@github.com:o-morenets/music-app.git&quot;,
-    &quot;accountId&quot;: &quot;7d1ee494-5973-44d5-9319-3f297ee52128&quot;
+    &quot;url&quot;: &quot;https://github.com/o-morenets/music-app.git&quot;,
+    &quot;accountId&quot;: &quot;f2f6b9ac-9089-47ca-a35f-1d4ee4c23f63&quot;
   }
 }</component>
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
 }</component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -47,54 +53,60 @@
   &quot;associatedIndex&quot;: 0
 }</component>
   <component name="ProjectId" id="2cmk8J8SQqULlMBYERwpBRV375C" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.DiscoveryServiceApplication.executor": "Run",
-    "Application.GatewayServiceApplication.executor": "Run",
-    "Application.ResourceServiceApplication.executor": "Run",
-    "Application.SongServiceApplication.executor": "Run",
-    "Docker.docker-compose.yml: Compose Deployment.executor": "Run",
-    "Maven.discovery-service [clean].executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Spring Boot.CloudGatewayServiceApplication.executor": "Run",
-    "Spring Boot.DiscoveryServiceApplication.executor": "Run",
-    "Spring Boot.GatewayServiceApplication.executor": "Run",
-    "Spring Boot.ResourceServiceApplication.executor": "Run",
-    "Spring Boot.SongServiceApplication.executor": "Run",
-    "git-widget-placeholder": "feign-client",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/oleks/IdeaProjects/music-app",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.203125",
-    "project.structure.side.proportion": "0.2",
-    "run.configurations.included.in.services": "true",
-    "settings.editor.selected.configurable": "editor.preferences.tabs",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.DiscoveryServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.GatewayServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ResourceServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.SongServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.docker-compose.yml: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.discovery-service [clean,install,-U].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.discovery-service [clean,install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.discovery-service [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.discovery-service [help:effective-settings].executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;Spring Boot.CloudGatewayServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.DiscoveryServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.GatewayServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.ResourceServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.SongServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/oleks/IdeaProjects/music-app&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.203125&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.tabs&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="mvn clean" />
+      <command value="mvn help:effective-settings " />
+      <command value="mvn clean install " />
+      <command value="mvn clean install -U " />
     </option>
   </component>
   <component name="RunDashboard">
@@ -215,11 +227,15 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Application.GatewayServiceApplication" />
-      <item itemvalue="Application.SongServiceApplication" />
       <item itemvalue="Application.DiscoveryServiceApplication" />
+      <item itemvalue="Application.GatewayServiceApplication" />
       <item itemvalue="Application.ResourceServiceApplication" />
+      <item itemvalue="Application.SongServiceApplication" />
       <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
+      <item itemvalue="Spring Boot.DiscoveryServiceApplication" />
+      <item itemvalue="Spring Boot.GatewayServiceApplication" />
+      <item itemvalue="Spring Boot.ResourceServiceApplication" />
+      <item itemvalue="Spring Boot.SongServiceApplication" />
     </list>
     <recent_temporary>
       <list>
@@ -229,6 +245,14 @@
         <item itemvalue="Application.DiscoveryServiceApplication" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.23774.435" />
+        <option value="bundled-js-predefined-d6986cc7102b-f27c65a3e318-JavaScript-IU-251.23774.435" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -242,6 +266,18 @@
       <workItem from="1708789423155" duration="795000" />
       <workItem from="1708805359961" duration="1223000" />
       <workItem from="1710415775546" duration="6432000" />
+      <workItem from="1744813222240" duration="714000" />
+      <workItem from="1744814244208" duration="746000" />
+      <workItem from="1744815009843" duration="66000" />
+      <workItem from="1744815395405" duration="910000" />
+      <workItem from="1744816312784" duration="107000" />
+      <workItem from="1744816565250" duration="1766000" />
+      <workItem from="1745433826967" duration="130000" />
+      <workItem from="1745433985415" duration="5000" />
+      <workItem from="1745434054399" duration="5000" />
+      <workItem from="1745434094239" duration="5000" />
+      <workItem from="1745434415280" duration="5000" />
+      <workItem from="1745434456057" duration="35000" />
     </task>
     <task id="LOCAL-00001" summary="Fix port number for local profile">
       <option name="closed" value="true" />
