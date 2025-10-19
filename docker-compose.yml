@@ -74,6 +74,7 @@ services:
       - resources_db
 
   song-service:
+    container_name: song-service
     image: song-service
     build:
       context: ./song-service
@@ -82,7 +83,7 @@ services:
     environment:
       - ENV
     ports:
-      - "8082-8087:8082"
+      - "8082:8082"
     networks:
       - music-network
     depends_on:

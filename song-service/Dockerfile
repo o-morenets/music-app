@@ -7,7 +7,7 @@ COPY src ${APP_HOME}/src
 RUN mvn clean package -DskipTests
 
 # Package stage
-FROM openjdk:17-jdk-alpine
+FROM eclipse-temurin:17-jre
 ARG APP_NAME
 ENV ARTIFACT_NAME=${APP_NAME}-0.0.1-SNAPSHOT.jar
 ENV APP_HOME=/usr/app
